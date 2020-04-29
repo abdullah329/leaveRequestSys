@@ -1,0 +1,190 @@
+
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="card-title mb-3">رصيد الإجازات</div>
+                <div class="col-md-12">
+                    <table width="80%" class="table">
+                        <tr>
+                            <th>
+                                السنة
+                            </th>
+                            <th>
+                                التاريخ
+                            </th>
+                            <th>
+                                الأيام
+                            </th>
+                            <th>
+                                <button class="btn btn-outline-primary btn-rounded" (click)="open(modalLong)">Launch Modal</button>
+                            </th>
+                            <th>
+                                القرار
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                               ١٤٣٨
+                            </td>
+                            <td>
+                                ٤٠
+                            </td>
+                            <td>
+                                تمت
+                            </td>
+                            <td>
+                               --
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                ١٤٣٨
+                            </td>
+                            <td>
+                                ٤٠
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-primary btn-rounded" (click)="open(modalLong)">Launch Modal</button>
+                            </td>
+                            <td>
+                                --
+                            </td>
+                        </tr><tr>
+                        <td>
+                            ١٤٣٨
+                        </td>
+                        <td>
+                            ٤٠
+                        </td>
+                        <td>
+                            تمت
+                        </td>
+                        <td>
+                            --
+                        </td>
+                    </tr><tr>
+                        <td>
+                            ١٤٣٨
+                        </td>
+                        <td>
+                            ٤٠
+                        </td>
+                        <td>
+                            تمت
+                        </td>
+                        <td>
+                            --
+                        </td>
+                    </tr><tr>
+                        <td>
+                            ١٤٣٨
+                        </td>
+                        <td>
+                            ٤٠
+                        </td>
+                        <td>
+                            تمت
+                        </td>
+                        <td>
+                            --
+                        </td>
+                    </tr><tr>
+                        <td>
+                            ١٤٣٨
+                        </td>
+                        <td>
+                            ٤٠
+                        </td>
+                        <td>
+                            تمت
+                        </td>
+                        <td>
+                            --
+                        </td>
+                    </tr><tr>
+                        <td>
+                            ١٤٣٨
+                        </td>
+                        <td>
+                            ٤٠
+                        </td>
+                        <td>
+                            تمت
+                        </td>
+                        <td>
+                            --
+                        </td>
+                    </tr><tr>
+                        <td>
+                            ١٤٣٨
+                        </td>
+                        <td>
+                            ٤٠
+                        </td>
+                        <td>
+                            تمت
+                        </td>
+                        <td>
+                            --
+                        </td>
+                    </tr><tr>
+                        <td>
+                            ١٤٣٨
+                        </td>
+                        <td>
+                            ٤٠
+                        </td>
+                        <td>
+                            تمت
+                        </td>
+                        <td>
+                            --
+                        </td>
+                    </tr><tr>
+                        <td>
+                            ١٤٣٨
+                        </td>
+                        <td>
+                            ٤٠
+                        </td>
+                        <td>
+                            تمت
+                        </td>
+                        <td>
+                            --
+                        </td>
+                    </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <ng-template #modalLong let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">تتبع الطلب</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="card-group">
+            <div class="card bg-success">
+                <div class="card-body text-center">
+                    تمت الموافقة
+                </div>
+            </div>
+            <div class="card bg-warning">
+                <div class="card-body text-center">
+                في الانتظار عند ....
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark btn-rounded" (click)="modal.close('ok')">Ok</button>
+    </div>
+</ng-template>
