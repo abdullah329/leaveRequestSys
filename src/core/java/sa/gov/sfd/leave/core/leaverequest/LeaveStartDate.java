@@ -23,7 +23,7 @@ import java.util.Objects;
  * @author abdullahalgarni on 15/04/2020 AD
  * @project leaveSystem
  **/
-public final class LeaveStartDate {
+public class LeaveStartDate {
     private final LocalDate leaveStartDate_AH; // Hijri Date
     private final LocalDate leaveStartDate_AD; // Gregorian Date
 

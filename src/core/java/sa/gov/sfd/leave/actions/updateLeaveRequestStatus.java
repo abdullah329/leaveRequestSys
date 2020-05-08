@@ -12,8 +12,11 @@ import sa.gov.sfd.leave.core.leaverequest.LeaveRequestStatus;
 public class updateLeaveRequestStatus {
 
 
-    @Inject
     private LeaveRequestService leaveRequestService;
+
+    @Inject
+    public updateLeaveRequestStatus() {
+    }
 
     public void updateStatus(LeaveId leaveRequestId , String newLeaveStatus){
         leaveRequestService.updateLeaveStatus(leaveRequestId, new LeaveRequestStatus(newLeaveStatus));

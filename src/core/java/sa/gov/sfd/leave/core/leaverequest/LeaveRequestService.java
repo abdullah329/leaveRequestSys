@@ -38,7 +38,14 @@ public class LeaveRequestService {
         return daysTakenPerYear;
     }
 
+    public List<LeaveRequestEntity> loadLeaveTakenNotConfirmed(EmployeeNID employeeNID){
+       return leaveRequestRepository.findAllLeaveRequestPendingByEmployeeNID(employeeNID);
 
+    }
+
+    public List<LeaveRequestEntity> loadLeaveTaken(EmployeeNID employeeNID){
+        return leaveRequestRepository.findAllLeaveRequestByEmployeeNID(employeeNID);
+    }
 
 
     public void updateLeaveStatus(LeaveId leaveRequestId , LeaveRequestStatus newLeaveStatus){

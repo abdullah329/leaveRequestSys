@@ -5,10 +5,7 @@
 package sa.gov.sfd.leaveapproval.actions;
 
 import com.google.inject.Inject;
-import sa.gov.sfd.leave.core.leaverequest.LeaveId;
 import sa.gov.sfd.leaveapproval.core.LeaveApprovalService;
-import sa.gov.sfd.leaveapproval.core.ApprovalActionTypes;
-import sa.gov.sfd.leaveapproval.core.EmployeeNID;
 import sa.gov.sfd.leaveapproval.core.LeaveApprovalTransactionId;
 
 import java.util.NoSuchElementException;
@@ -19,11 +16,15 @@ import java.util.NoSuchElementException;
  **/
 public class performApproverActions {
 
-    @Inject private LeaveApprovalService leaveApprovalFlowService;
+    private LeaveApprovalService leaveApprovalFlowService;
 
-    public boolean acceptLeaveRequest(EmployeeNID employeeNID, LeaveApprovalTransactionId transactionId, LeaveId leaveId){
-        leaveApprovalFlowService= new LeaveApprovalService();
-        if(leaveApprovalFlowService.updateActionType(transactionId,new ApprovalActionTypes("A"),employeeNID,leaveId)) {
+    @Inject
+    public performApproverActions(LeaveApprovalService leaveApprovalFlowService) {
+        this.leaveApprovalFlowService = leaveApprovalFlowService;
+    }
+
+    public boolean acceptLeaveRequest(LeaveApprovalTransactionId transactionId){
+        if(leaveApprovalFlowService.updateActionType(transactionId,"A")) {
             return true;
         }
         else{
@@ -33,9 +34,8 @@ public class performApproverActions {
     }
 
 
-    public boolean declineLeaveRequest(EmployeeNID employeeNID, LeaveApprovalTransactionId transactionId, LeaveId leaveId){
-        leaveApprovalFlowService= new LeaveApprovalService();
-        if(leaveApprovalFlowService.updateActionType(transactionId,new ApprovalActionTypes("D"),employeeNID,leaveId)) {
+    public boolean declineLeaveRequest(LeaveApprovalTransactionId transactionId){
+        if(leaveApprovalFlowService.updateActionType(transactionId,"D")) {
             return true;
         }
         else{
@@ -44,9 +44,8 @@ public class performApproverActions {
         }
     }
 
-    public boolean confirmedLeaveRequest(EmployeeNID employeeNID, LeaveApprovalTransactionId transactionId, LeaveId leaveId){
-        leaveApprovalFlowService= new LeaveApprovalService();
-        if(leaveApprovalFlowService.updateActionType(transactionId,new ApprovalActionTypes("C"),employeeNID,leaveId)) {
+    public boolean confirmedLeaveRequest(LeaveApprovalTransactionId transactionId){
+        if(leaveApprovalFlowService.updateActionType(transactionId,"C")) {
             return true;
         }
         else{

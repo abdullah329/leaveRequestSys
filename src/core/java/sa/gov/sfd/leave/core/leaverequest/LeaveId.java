@@ -30,7 +30,7 @@ import java.util.Objects;
  * @author abdullahalgarni on 15/04/2020 AD
  * @project leaveSystem
  **/
-public final class LeaveId {
+public class LeaveId {
 
     public final long Id;
 

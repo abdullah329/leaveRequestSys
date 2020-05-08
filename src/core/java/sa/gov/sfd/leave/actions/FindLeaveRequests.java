@@ -1,5 +1,7 @@
 package sa.gov.sfd.leave.actions;
 
+import com.google.inject.Inject;
+import sa.gov.sfd.leave.core.leaverequest.LeaveRequestService;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
 import sa.gov.sfd.leave.core.leaverequest.LeaveRequestEntity;
 import sa.gov.sfd.leave.infrastructure.LeaveRequestRepository;
@@ -13,19 +15,25 @@ import java.util.List;
  **/
 public class FindLeaveRequests {
 
-    private LeaveRequestRepository leaveRequestRepository;
+    private LeaveRequestService leaveRequestService;
+
+    @Inject
+    public FindLeaveRequests(LeaveRequestService leaveRequestService) {
+        this.leaveRequestService = leaveRequestService;
+    }
 
 
-    public List<LeaveRequestEntity> loadAllLeaveUsedByEmployeeNID(EmployeeNID employeeNID) {
-        List<LeaveRequestEntity> listLeave =  this.leaveRequestRepository.findAllLeaveRequestNOTDeclinedByEmployeeNID(employeeNID);
-        //sort the list by year
+
+    public List<LeaveRequestEntity> loadAllLeaveTaken(EmployeeNID employeeNID) {
+        List<LeaveRequestEntity> listLeave =  this.leaveRequestService.loadLeaveTaken(employeeNID);
+        //sort the list by date
         listLeave.sort(Comparator.comparing(x -> x.getLeaveRequestDetailsInfo().getLeaveStartDate().getLeaveStartDate_AH()));
 
         return listLeave;
     }
 
-    public List<LeaveRequestEntity> loadAllLeavePendingByEmployeeNED(EmployeeNID employeeNID) {
-        List<LeaveRequestEntity> listLeave =  this.leaveRequestRepository.findAllLeaveRequestNOTDeclinedByEmployeeNID(employeeNID);
+    public List<LeaveRequestEntity> loadAllLeaveNotConfirmed(EmployeeNID employeeNID) {
+        List<LeaveRequestEntity> listLeave =  this.leaveRequestService.loadLeaveTakenNotConfirmed(employeeNID);
         //sort the list by year
         listLeave.sort(Comparator.comparing(x -> x.getLeaveRequestDetailsInfo().getLeaveStartDate().getLeaveStartDate_AH()));
 

@@ -13,7 +13,12 @@ import java.sql.Timestamp;
  **/
 public class ApplyNewLeaveApproval {
 
-    @Inject private LeaveApprovalService leaveApprovalService;
+    private LeaveApprovalService leaveApprovalService;
+
+    @Inject
+    public ApplyNewLeaveApproval(LeaveApprovalService leaveApprovalService) {
+        this.leaveApprovalService = leaveApprovalService;
+    }
 
     public boolean apply(LeaveId leaveId, EmployeeNID employeeNID){
         return leaveApprovalService.applyNewApproval(leaveId,employeeNID);
