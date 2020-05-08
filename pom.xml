@@ -29,7 +29,13 @@
 
 	<dependencies>
 
-
+		<dependency>
+			<groupId>gov.sfd.dateservices</groupId>
+			<artifactId>dateservices</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/core/resources/lib/SfdDateServices.jar</systemPath>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>

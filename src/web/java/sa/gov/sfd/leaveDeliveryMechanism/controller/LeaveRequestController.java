@@ -1,25 +1,25 @@
 package sa.gov.sfd.leaveDeliveryMechanism.controller;
 
 
+import com.google.inject.Inject;
 import org.springframework.web.bind.annotation.*;
-import sa.gov.sfd.leaveCore.actions.leaveRequest.AddNewLeaveRequest;
-import sa.gov.sfd.leaveCore.model.leaveApprovalFlow.dataModel.EmployeeNID;
-import sa.gov.sfd.leaveCore.model.leaveRequest.dataModel.LeaveRequestTrackerEntity;
+import sa.gov.sfd.leave.actions.ApplyForLeaveRequest;
+import sa.gov.sfd.leaveapproval.core.EmployeeNID;
 import sa.gov.sfd.leaveDeliveryMechanism.view.LeaveRequestViewModel;
 
-import java.util.List;
+import java.time.LocalDate;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value="/api")
 public class LeaveRequestController {
 
-    private AddNewLeaveRequest addNewLeaveRequest = new AddNewLeaveRequest();
+    @Inject private ApplyForLeaveRequest newLeave;
 
     @PostMapping("save-leave-request")
     public boolean addNewLeaveRequest(@RequestBody LeaveRequestViewModel leaveRequestDTO){
-        return addNewLeaveRequest.addNewLeave(
-                new EmployeeNID(leaveRequestDTO.getEmployeeNID()),leaveRequestDTO.getLeaveStartDate_AH(),leaveRequestDTO.getLeaveDayRequired());
+        return newLeave.apply(
+                new EmployeeNID(leaveRequestDTO.getEmployeeNID()), LocalDate.parse(leaveRequestDTO.getLeaveStartDate_AH()),leaveRequestDTO.getLeaveDayRequired());
     }
 
      //todo another functions
