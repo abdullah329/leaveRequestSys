@@ -1,10 +1,9 @@
-package sa.gov.sfd.leave.actions;
+package sa.gov.sfd.leaverequest.actions;
 
 import com.google.inject.Inject;
-import sa.gov.sfd.leave.core.leaverequest.LeaveRequestService;
+import sa.gov.sfd.leaverequest.core.leaverequest.LeaveRequestService;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
-import sa.gov.sfd.leave.core.leaverequest.LeaveRequestEntity;
-import sa.gov.sfd.leave.infrastructure.LeaveRequestRepository;
+import sa.gov.sfd.leaverequest.core.leaverequest.LeaveRequestEntity;
 
 import java.util.Comparator;
 import java.util.List;

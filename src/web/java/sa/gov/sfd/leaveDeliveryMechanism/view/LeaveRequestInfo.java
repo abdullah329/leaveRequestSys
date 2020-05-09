@@ -4,7 +4,7 @@
 
 package sa.gov.sfd.leaveDeliveryMechanism.view;
 
-import sa.gov.sfd.leave.leaveRequest.core.LeaveStartDate;
+import sa.gov.sfd.leaverequest.leaveRequest.core.LeaveStartDate;
 
 /**
  * @author abdullahalgarni on 14/04/2020 AD

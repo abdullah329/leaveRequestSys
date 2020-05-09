@@ -14,7 +14,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package sa.gov.sfd.leave.core.leaverequest;
+package sa.gov.sfd.leaverequest.core.leaverequest;
 
 import java.time.LocalDate;
 import java.util.Objects;

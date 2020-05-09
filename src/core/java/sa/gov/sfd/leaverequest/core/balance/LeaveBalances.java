@@ -3,9 +3,8 @@
  */
 
 
-package sa.gov.sfd.leave.core.balance;
+package sa.gov.sfd.leaverequest.core.balance;
 
-import java.util.List;
 import java.util.Objects;
 
 /**

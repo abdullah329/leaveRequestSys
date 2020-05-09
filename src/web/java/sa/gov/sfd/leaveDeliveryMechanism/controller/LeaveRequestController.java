@@ -3,7 +3,7 @@ package sa.gov.sfd.leaveDeliveryMechanism.controller;
 
 import com.google.inject.Inject;
 import org.springframework.web.bind.annotation.*;
-import sa.gov.sfd.leave.actions.ApplyForLeaveRequest;
+import sa.gov.sfd.leaverequest.actions.ApplyForLeaveRequest;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
 import sa.gov.sfd.leaveDeliveryMechanism.view.LeaveRequestViewModel;
 

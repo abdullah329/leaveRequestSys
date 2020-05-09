@@ -1,11 +1,9 @@
-package sa.gov.sfd.leave.core.balance;
+package sa.gov.sfd.leaverequest.core.balance;
 
-import sa.gov.sfd.leave.core.balance.LeaveBalances;
-import sa.gov.sfd.leave.core.entitlement.EntitlementEntity;
-import sa.gov.sfd.leave.core.entitlement.EntitlementServices;
-import sa.gov.sfd.leave.core.leaverequest.LeaveRequestDeductionDetails;
-import sa.gov.sfd.leave.core.leaverequest.LeaveRequestService;
-import sa.gov.sfd.leave.infrastructure.EntitlementRepository;
+import sa.gov.sfd.leaverequest.core.entitlement.EntitlementEntity;
+import sa.gov.sfd.leaverequest.core.entitlement.EntitlementServices;
+import sa.gov.sfd.leaverequest.core.leaverequest.LeaveRequestDeductionDetails;
+import sa.gov.sfd.leaverequest.core.leaverequest.LeaveRequestService;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
 
 import java.util.ArrayList;

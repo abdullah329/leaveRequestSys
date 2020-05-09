@@ -1,9 +1,9 @@
-package sa.gov.sfd.leave.actions;
+package sa.gov.sfd.leaverequest.actions;
 
 import com.google.inject.Inject;
-import sa.gov.sfd.leave.core.leaverequest.LeaveId;
-import sa.gov.sfd.leave.core.leaverequest.LeaveRequestService;
-import sa.gov.sfd.leave.core.leaverequest.LeaveRequestStatus;
+import sa.gov.sfd.leaverequest.core.leaverequest.LeaveId;
+import sa.gov.sfd.leaverequest.core.leaverequest.LeaveRequestService;
+import sa.gov.sfd.leaverequest.core.leaverequest.LeaveRequestStatus;
 
 /**
  * @author abdullahalgarni on 07/05/2020 AD

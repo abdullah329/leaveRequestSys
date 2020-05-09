@@ -14,7 +14,7 @@ import sa.gov.sfd.leaveapproval.core.LeaveApprovalProcessesEntity;
 import sa.gov.sfd.leaveapproval.core.*;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
 import sa.gov.sfd.leaveapproval.core.EmployeeEntity;
-import sa.gov.sfd.leave.core.leaverequest.LeaveId;
+import sa.gov.sfd.leaverequest.core.leaverequest.LeaveId;
 
 import javax.sql.DataSource;
 import java.sql.Timestamp;

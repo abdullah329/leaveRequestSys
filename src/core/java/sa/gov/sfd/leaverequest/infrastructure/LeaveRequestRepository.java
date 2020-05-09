@@ -2,13 +2,13 @@
  * Copyright (c) 2020. Saudi Fund For Development - Abdullah F Algarni
  */
 
-package sa.gov.sfd.leave.infrastructure;
+package sa.gov.sfd.leaverequest.infrastructure;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
-import sa.gov.sfd.leave.core.leaverequest.*;
+import sa.gov.sfd.leaverequest.core.leaverequest.*;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
 
 import javax.sql.DataSource;
