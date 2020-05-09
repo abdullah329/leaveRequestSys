@@ -3,7 +3,7 @@
  */
 
 package sa.gov.sfd.leaveapproval.core;
-import sa.gov.sfd.leaverequest.core.leaverequest.LeaveId;
+import sa.gov.sfd.leave.core.leaverequest.LeaveId;
 
 import java.util.List;
 import java.util.Objects;

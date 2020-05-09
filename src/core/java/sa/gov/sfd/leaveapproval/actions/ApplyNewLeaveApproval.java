@@ -1,7 +1,7 @@
 package sa.gov.sfd.leaveapproval.actions;
 
 import com.google.inject.Inject;
-import sa.gov.sfd.leaverequest.core.leaverequest.LeaveId;
+import sa.gov.sfd.leave.core.leaverequest.LeaveId;
 import sa.gov.sfd.leaveapproval.core.*;
 
 /**
