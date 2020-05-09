@@ -1,10 +1,10 @@
-package sa.gov.sfd.leaverequest.core.leaverequest;
+package sa.gov.sfd.leave.core.leaverequest;
 
 import com.google.inject.Inject;
-import sa.gov.sfd.leaverequest.core.balance.BalanceServices;
-import sa.gov.sfd.leaverequest.core.balance.LeaveBalances;
-import sa.gov.sfd.leaverequest.infrastructure.DateOperations;
-import sa.gov.sfd.leaverequest.infrastructure.LeaveRequestRepository;
+import sa.gov.sfd.leave.core.balance.BalanceServices;
+import sa.gov.sfd.leave.core.balance.LeaveBalances;
+import sa.gov.sfd.leave.infrastructure.DateOperations;
+import sa.gov.sfd.leave.infrastructure.LeaveRequestRepository;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
 import java.time.LocalDate;
 import java.util.ArrayList;

@@ -2,7 +2,7 @@
  * Copyright (c) 2020. Saudi Fund For Development - Abdullah F Algarni
  */
 
-package sa.gov.sfd.leaverequest.core.leaverequest;
+package sa.gov.sfd.leave.core.leaverequest;
 
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
 

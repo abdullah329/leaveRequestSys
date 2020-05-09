@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package sa.gov.sfd.leaverequest.infrastructure;
+package sa.gov.sfd.leave.infrastructure;
 
 import java.time.LocalDate;
 import java.time.chrono.HijrahChronology;

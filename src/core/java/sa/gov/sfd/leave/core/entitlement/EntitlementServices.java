@@ -2,10 +2,10 @@
  * Copyright (c) 2020. Saudi Fund For Development - Abdullah F Algarni
  */
 
-package sa.gov.sfd.leaverequest.core.entitlement;
+package sa.gov.sfd.leave.core.entitlement;
 
 import com.google.inject.Inject;
-import sa.gov.sfd.leaverequest.infrastructure.DateOperations;
+import sa.gov.sfd.leave.infrastructure.DateOperations;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
 
 import java.time.LocalDate;

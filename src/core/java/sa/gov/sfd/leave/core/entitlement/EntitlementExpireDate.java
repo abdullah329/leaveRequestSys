@@ -14,51 +14,52 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-/*
- * Copyright (c) 2020. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
- */
+package sa.gov.sfd.leave.core.entitlement;
 
-package sa.gov.sfd.leaverequest.core.leaverequest;
-
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
- * @author abdullahalgarni on 15/04/2020 AD
+ * @author abdullahalgarni on 16/04/2020 AD
  * @project leaveSystem
  **/
-public class LeaveId {
+public class EntitlementExpireDate {
 
-    public final long Id;
+    private final  LocalDate expireDate_AH; // Hijri Date
+    private final  LocalDate expireDate_AD; // Gregorian Dates
 
-    public LeaveId(Long id) {
-        Id = id;
+    public EntitlementExpireDate(LocalDate expireDate_AH, LocalDate expireDate_AD) {
+        this.expireDate_AH = expireDate_AH;
+        this.expireDate_AD = expireDate_AD;
     }
 
-    public Long getId() {
-        return Id;
+    public LocalDate getExpireDate_AH() {
+        return expireDate_AH;
+    }
+
+    public LocalDate getExpireDate_AD() {
+        return expireDate_AD;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        LeaveId that = (LeaveId) o;
-        return Id == that.Id;
+        EntitlementExpireDate that = (EntitlementExpireDate) o;
+        return expireDate_AH.equals(that.expireDate_AH) &&
+                expireDate_AD.equals(that.expireDate_AD);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id);
+        return Objects.hash(expireDate_AH, expireDate_AD);
     }
 
     @Override
     public String toString() {
-        return "leaveAppSID{" +
-                "Id=" + Id +
+        return "ExpireDate{" +
+                "expireDate_HC='" + expireDate_AH + '\'' +
+                ", expireDate_GC=" + expireDate_AD +
                 '}';
     }
 }
