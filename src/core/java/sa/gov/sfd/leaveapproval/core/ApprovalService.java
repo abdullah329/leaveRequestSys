@@ -11,28 +11,28 @@ import java.util.NoSuchElementException;
  * @author abdullahalgarni on 14/04/2020 AD
  * @project leaveSystem
  **/
-public class LeaveApprovalService {
+public class ApprovalService {
 
-    private LeaveApprovalInterface leaveApprovalTransactionRepository;
+    private ApprovalInterface leaveApprovalTransactionRepository;
     private DateOperations dateOperations;
 
     @Inject
-    public LeaveApprovalService(LeaveApprovalInterface leaveApprovalTransactionRepository, DateOperations dateOperations) {
+    public ApprovalService(ApprovalInterface leaveApprovalTransactionRepository, DateOperations dateOperations) {
         this.leaveApprovalTransactionRepository = leaveApprovalTransactionRepository;
         this.dateOperations = dateOperations;
     }
 
-    public List<LeaveApprovalTransactionEntity> findTransactionsByLeaveRequestId(LeaveId leaveRequestId){
+    public List<ApprovalTransactionEntity> findTransactionsByLeaveRequestId(LeaveId leaveRequestId){
 
         return leaveApprovalTransactionRepository.findByLeaveRequestId(leaveRequestId);
     }
 
-    public List<LeaveApprovalTransactionEntity> findTransactionsByApproverNID(EmployeeNID approverNID){
+    public List<ApprovalTransactionEntity> findTransactionsByApproverNID(EmployeeNID approverNID){
 
         return leaveApprovalTransactionRepository.findPendingRequestByApproveNID(approverNID);
     }
 
-    public boolean updateActionType(LeaveApprovalTransactionId transactionId,
+    public boolean updateActionType(ApprovalTransactionId transactionId,
                                     String leaveRequestAction ){
 
         int result = leaveApprovalTransactionRepository.updateActionType(transactionId,new ApprovalActionTypes(leaveRequestAction));
@@ -47,12 +47,12 @@ public class LeaveApprovalService {
     public boolean applyNewApproval(LeaveId leaveId, EmployeeNID employeeNID){
 
 
-        LeaveApprovalTransDate leaveApprovalTransDate = new LeaveApprovalTransDate(dateOperations.nowHijri(),
+        ApprovalTransDate leaveApprovalTransDate = new ApprovalTransDate(dateOperations.nowHijri(),
                 dateOperations.nowGregorian());
         NextApprovalTransactionLine nextApprovalProcess = findNextApprovalStep(employeeNID,leaveId);
         int queryExecutionResult = leaveApprovalTransactionRepository.insertNewTransaction(
-                new LeaveApprovalTransactionEntity(
-                        new LeaveApprovalTransactionId(0), leaveApprovalTransDate,
+                new ApprovalTransactionEntity(
+                        new ApprovalTransactionId(0), leaveApprovalTransDate,
                         nextApprovalProcess.getLeaveRequestId(),
                         nextApprovalProcess.getNextProcessId(),
                         nextApprovalProcess.getApproverTeam(),
@@ -102,7 +102,7 @@ public class LeaveApprovalService {
         return nextStepNumber;
     }
 
-    public List<LeaveApprovalProcessesEntity> loadLeaveApprovalProcesses(EmployeeNID employeeNID){
+    public List<ApprovalProcessesEntity> loadLeaveApprovalProcesses(EmployeeNID employeeNID){
 
         return leaveApprovalTransactionRepository.loadLeaveProcessScenarioByEmployeeNID(employeeNID);
     }

@@ -4,7 +4,8 @@
 
 package sa.gov.sfd.leaveapproval.core;
 
-import leaverequest.leaveRequest.core.LeaveId;
+
+import sa.gov.sfd.leave.core.leaverequest.LeaveId;
 
 import java.util.Objects;
 
@@ -13,7 +14,7 @@ import java.util.Objects;
  * @project leaveSystem
  **/
 public class CurrentApprovalTransactionLine {
-    private final LeaveApprovalTransDate leaveApprovalTransDate;
+    private final ApprovalTransDate leaveApprovalTransDate;
     private final LeaveId leaveRequestId;
 
     private final ProcessFlowId processId;
@@ -24,7 +25,7 @@ public class CurrentApprovalTransactionLine {
     private final EmployeeNID employeeNID;
 
 
-    public CurrentApprovalTransactionLine(LeaveApprovalTransDate leaveApprovalTransDate, LeaveId leaveRequestId, ProcessFlowId processId, processFlowScenarioId approvalScenarioId, int processStepNumber, ApproverTeamId approverTeamId, EmployeeNID employeeNID) {
+    public CurrentApprovalTransactionLine(ApprovalTransDate leaveApprovalTransDate, LeaveId leaveRequestId, ProcessFlowId processId, processFlowScenarioId approvalScenarioId, int processStepNumber, ApproverTeamId approverTeamId, EmployeeNID employeeNID) {
         this.leaveApprovalTransDate = leaveApprovalTransDate;
         this.leaveRequestId = leaveRequestId;
         this.processId = processId;
@@ -34,7 +35,7 @@ public class CurrentApprovalTransactionLine {
         this.employeeNID = employeeNID;
     }
 
-    public LeaveApprovalTransDate getLeaveApprovalTransDate() {
+    public ApprovalTransDate getLeaveApprovalTransDate() {
         return leaveApprovalTransDate;
     }
 

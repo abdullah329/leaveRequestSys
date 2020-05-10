@@ -29,9 +29,9 @@ import java.util.List;
  **/
 
 
-public final class LeaveRequestTrackerMapper implements ResultSetExtractor<List<LeaveRequestEntity>> {
+public final class LeaveRequestMapper implements ResultSetExtractor<List<LeaveRequestEntity>> {
 
-    private static List<LeaveRequestEntity> leaveRequestTracker=null;
+    private static List<LeaveRequestEntity> leaveRequestList = new ArrayList<>();
 
 
     @Override
@@ -45,32 +45,29 @@ public final class LeaveRequestTrackerMapper implements ResultSetExtractor<List<
             if (levID==null || levID !=rs.getInt("leaveId")) {
                 if(levID!=null && leaveEntity != null){
                     leaveEntity.setLeaveRequestDeductionDetails(leaveRequestDeductionDetails);
-                    this.leaveRequestTracker.add(leaveEntity);
+                    this.leaveRequestList.add(leaveEntity);
                 }
-                leaveEntity = new LeaveRequestEntity();
                 leaveRequestDeductionDetails= new ArrayList<>();
-
-                LeaveRequestTrackerMapper(rs,leaveEntity);
+                leaveEntity = LeaveRequestMapper(rs);
                 levID= leaveEntity.getLeaveId().Id;
 
             }
             leaveRequestDeductionDetails.add(LeaveRequestDeductionDetailsMapper(rs));
         }
 
-        return this.leaveRequestTracker;
+        return this.leaveRequestList;
     }
 
-    public LeaveRequestEntity LeaveRequestTrackerMapper(ResultSet rs, LeaveRequestEntity pLeaveRequestTracker) throws SQLException {
-        pLeaveRequestTracker = new LeaveRequestEntity();
-        pLeaveRequestTracker.setLeaveId(new LeaveId(rs.getLong("leaveId")));
-        pLeaveRequestTracker.setLeaveRequestDetailsInfo(
+    public LeaveRequestEntity LeaveRequestMapper(ResultSet rs) throws SQLException {
+        LeaveRequestEntity pLeaveRequest = new LeaveRequestEntity();
+        pLeaveRequest.setLeaveId(new LeaveId(rs.getLong("leaveId")));
+        pLeaveRequest.setLeaveRequestDetailsInfo(
                 new LeaveRequestInfo(new EmployeeNID(rs.getLong("employeeNID")),
                         new LeaveStartDate(LocalDate.parse(rs.getString("leaveStartDate_AH")),LocalDate.parse(rs.getDate("leaveStartDate_AD").toString())),
                         rs.getInt("numberOfDaysLeave")));
-        pLeaveRequestTracker.setRequestTimeStamp(rs.getTimestamp("requestTimeStamp"));
-        pLeaveRequestTracker.setRequestStatus(new LeaveRequestStatus(rs.getString("status")));
+        pLeaveRequest.setRequestStatus(new LeaveRequestStatus(rs.getString("status")));
 
-        return pLeaveRequestTracker;
+        return pLeaveRequest;
     }
 
     public LeaveRequestDeductionDetails LeaveRequestDeductionDetailsMapper(ResultSet rs) throws SQLException {

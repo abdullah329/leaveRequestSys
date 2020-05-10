@@ -12,9 +12,9 @@ import java.util.List;
  * @author abdullahalgarni on 15/04/2020 AD
  * @project leaveSystem
  **/
-public class LeaveApprovalTransactionEntity {
-    private final LeaveApprovalTransactionId transactionId;
-    private final LeaveApprovalTransDate leaveApprovalTransDate;
+public class ApprovalTransactionEntity {
+    private final ApprovalTransactionId transactionId;
+    private final ApprovalTransDate leaveApprovalTransDate;
     private final LeaveId leaveRequestId;
     private final ProcessFlowId processId;
     private final List<ApproverTeamEntity> approverTeam;
@@ -22,12 +22,12 @@ public class LeaveApprovalTransactionEntity {
     private final EmployeeNID employeeNID;
     private final String approverNote;
 
-    public LeaveApprovalTransactionEntity(LeaveApprovalTransactionId transactionId, LeaveApprovalTransDate leaveApprovalTransDate,
-                                          LeaveId leaveRequestId,
-                                          ProcessFlowId leaveApprovalGroupDptId,
-                                          List<ApproverTeamEntity> approverTeam,
-                                          ApprovalActionTypes leaveRequestAction,
-                                          EmployeeNID employeeNID, String approverNote) {
+    public ApprovalTransactionEntity(ApprovalTransactionId transactionId, ApprovalTransDate leaveApprovalTransDate,
+                                     LeaveId leaveRequestId,
+                                     ProcessFlowId leaveApprovalGroupDptId,
+                                     List<ApproverTeamEntity> approverTeam,
+                                     ApprovalActionTypes leaveRequestAction,
+                                     EmployeeNID employeeNID, String approverNote) {
         this.transactionId = transactionId;
 
         this.leaveApprovalTransDate = leaveApprovalTransDate;
@@ -40,11 +40,11 @@ public class LeaveApprovalTransactionEntity {
     }
 
 
-    public LeaveApprovalTransactionId getTransactionId() {
+    public ApprovalTransactionId getTransactionId() {
         return transactionId;
     }
 
-    public LeaveApprovalTransDate getLeaveApprovalTransDate() {
+    public ApprovalTransDate getLeaveApprovalTransDate() {
         return leaveApprovalTransDate;
     }
 

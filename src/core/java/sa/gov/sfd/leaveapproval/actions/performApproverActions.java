@@ -5,8 +5,8 @@
 package sa.gov.sfd.leaveapproval.actions;
 
 import com.google.inject.Inject;
-import sa.gov.sfd.leaveapproval.core.LeaveApprovalService;
-import sa.gov.sfd.leaveapproval.core.LeaveApprovalTransactionId;
+import sa.gov.sfd.leaveapproval.core.ApprovalService;
+import sa.gov.sfd.leaveapproval.core.ApprovalTransactionId;
 
 import java.util.NoSuchElementException;
 
@@ -16,14 +16,14 @@ import java.util.NoSuchElementException;
  **/
 public class performApproverActions {
 
-    private LeaveApprovalService leaveApprovalFlowService;
+    private ApprovalService leaveApprovalFlowService;
 
     @Inject
-    public performApproverActions(LeaveApprovalService leaveApprovalFlowService) {
+    public performApproverActions(ApprovalService leaveApprovalFlowService) {
         this.leaveApprovalFlowService = leaveApprovalFlowService;
     }
 
-    public boolean acceptLeaveRequest(LeaveApprovalTransactionId transactionId){
+    public boolean acceptLeaveRequest(ApprovalTransactionId transactionId){
         if(leaveApprovalFlowService.updateActionType(transactionId,"A")) {
             return true;
         }
@@ -34,7 +34,7 @@ public class performApproverActions {
     }
 
 
-    public boolean declineLeaveRequest(LeaveApprovalTransactionId transactionId){
+    public boolean declineLeaveRequest(ApprovalTransactionId transactionId){
         if(leaveApprovalFlowService.updateActionType(transactionId,"D")) {
             return true;
         }
@@ -44,7 +44,7 @@ public class performApproverActions {
         }
     }
 
-    public boolean confirmedLeaveRequest(LeaveApprovalTransactionId transactionId){
+    public boolean confirmedLeaveRequest(ApprovalTransactionId transactionId){
         if(leaveApprovalFlowService.updateActionType(transactionId,"C")) {
             return true;
         }

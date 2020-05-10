@@ -27,16 +27,16 @@ import java.util.List;
  **/
 
 
-public final class ApprovalProcessMapper implements ResultSetExtractor<List<LeaveApprovalProcessesEntity>> {
+public final class ApprovalProcessMapper implements ResultSetExtractor<List<ApprovalProcessesEntity>> {
 
-    private static List<LeaveApprovalProcessesEntity> leaveApprovalProcessesEntity =null;
+    private static List<ApprovalProcessesEntity> leaveApprovalProcessesEntity =null;
 
 
     @Override
-    public List<LeaveApprovalProcessesEntity> extractData(ResultSet rs) throws SQLException, DataAccessException {
+    public List<ApprovalProcessesEntity> extractData(ResultSet rs) throws SQLException, DataAccessException {
 
         int processId=0;
-        LeaveApprovalProcessesEntity leaveApprovalProcesses = null;
+        ApprovalProcessesEntity leaveApprovalProcesses = null;
         List<ApproverTeamEntity> approverTeams= null;
         while (rs.next()) {
 
@@ -45,7 +45,7 @@ public final class ApprovalProcessMapper implements ResultSetExtractor<List<Leav
                     leaveApprovalProcesses.setApproverAndRols(approverTeams);
                     this.leaveApprovalProcessesEntity.add(leaveApprovalProcesses);
                 }
-                leaveApprovalProcesses = new LeaveApprovalProcessesEntity();
+                leaveApprovalProcesses = new ApprovalProcessesEntity();
                 approverTeams= new ArrayList<>();
 
                 LeaveApprovalProcessesMapper(rs,leaveApprovalProcesses);
@@ -58,8 +58,8 @@ public final class ApprovalProcessMapper implements ResultSetExtractor<List<Leav
         return this.leaveApprovalProcessesEntity;
     }
 
-    public LeaveApprovalProcessesEntity LeaveApprovalProcessesMapper(ResultSet rs, LeaveApprovalProcessesEntity processEntity) throws SQLException {
-        processEntity = new LeaveApprovalProcessesEntity();
+    public ApprovalProcessesEntity LeaveApprovalProcessesMapper(ResultSet rs, ApprovalProcessesEntity processEntity) throws SQLException {
+        processEntity = new ApprovalProcessesEntity();
         processEntity.setProcessId(new ProcessFlowId(rs.getInt("processId")));
         processEntity.setProcessId(new ProcessFlowId(rs.getInt("approvalScenarioId")));
         processEntity.setProcessId(new ProcessFlowId(rs.getInt("processStepNumber")));

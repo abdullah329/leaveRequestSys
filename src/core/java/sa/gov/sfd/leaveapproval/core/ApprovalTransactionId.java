@@ -11,11 +11,11 @@ import java.util.Objects;
  * @author abdullahalgarni on 16/04/2020 AD
  * @project leaveSystem
  **/
-public class LeaveApprovalTransactionId {
+public class ApprovalTransactionId {
 
     private final int Id;
 
-    public LeaveApprovalTransactionId(int id) {
+    public ApprovalTransactionId(int id) {
         Id = id;
     }
 
@@ -27,7 +27,7 @@ public class LeaveApprovalTransactionId {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        LeaveApprovalTransactionId that = (LeaveApprovalTransactionId) o;
+        ApprovalTransactionId that = (ApprovalTransactionId) o;
         return Id == that.Id;
     }
 

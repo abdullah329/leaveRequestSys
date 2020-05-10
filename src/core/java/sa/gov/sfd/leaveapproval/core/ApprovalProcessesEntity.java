@@ -10,7 +10,7 @@ import java.util.List;
  * @author abdullahalgarni on 15/04/2020 AD
  * @project leaveSystem
  **/
-public class LeaveApprovalProcessesEntity {
+public class ApprovalProcessesEntity {
 
     private ProcessFlowId processId;
     private processFlowScenarioId scenarioStepId; // one or more employee will be assign to one scenario , usually each department or section has one scenario

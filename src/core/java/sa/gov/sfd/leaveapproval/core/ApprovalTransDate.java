@@ -20,12 +20,12 @@ import java.util.Objects;
  * @author abdullahalgarni on 16/04/2020 AD
  * @project leaveSystem
  **/
-public class LeaveApprovalTransDate {
+public class ApprovalTransDate {
 
     private final LocalDate leaveAppTransDate_AH;
     private final LocalDate leaveAppTransDate_AD;
 
-    public LeaveApprovalTransDate(LocalDate leaveAppTransDate_AH, LocalDate leaveAppTransDate_AD) {
+    public ApprovalTransDate(LocalDate leaveAppTransDate_AH, LocalDate leaveAppTransDate_AD) {
         this.leaveAppTransDate_AH = Objects.requireNonNull(leaveAppTransDate_AH);
         this.leaveAppTransDate_AD = Objects.requireNonNull(leaveAppTransDate_AD);
     }
@@ -42,7 +42,7 @@ public class LeaveApprovalTransDate {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        LeaveApprovalTransDate that = (LeaveApprovalTransDate) o;
+        ApprovalTransDate that = (ApprovalTransDate) o;
         return leaveAppTransDate_AH.equals(that.leaveAppTransDate_AH) &&
                 leaveAppTransDate_AD.equals(that.leaveAppTransDate_AD);
     }

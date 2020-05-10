@@ -11,17 +11,17 @@ import java.util.List;
  * @author abdullahalgarni on 08/05/2020 AD
  * @project leaveSystem
  **/
-public interface LeaveApprovalInterface {
+public interface ApprovalInterface {
 
 
 
-     List<LeaveApprovalTransactionEntity> findByLeaveRequestId(LeaveId leaveRequestId);
+     List<ApprovalTransactionEntity> findByLeaveRequestId(LeaveId leaveRequestId);
 
-     List<LeaveApprovalProcessesEntity> loadLeaveProcessScenarioByEmployeeNID(EmployeeNID approverNID);
+     List<ApprovalProcessesEntity> loadLeaveProcessScenarioByEmployeeNID(EmployeeNID approverNID);
 
      CurrentApprovalTransactionLine findCurrentApprovalStepByLeaveId(LeaveId leaveId);
 
-     List<LeaveApprovalTransactionEntity> findPendingRequestByApproveNID(EmployeeNID approverNID);
+     List<ApprovalTransactionEntity> findPendingRequestByApproveNID(EmployeeNID approverNID);
 
      List<Integer> findAllapproverTeamListByApproverId(EmployeeNID pApproverNID);
 
@@ -30,12 +30,12 @@ public interface LeaveApprovalInterface {
 
     //************************* UPDATE Operations **************************************************
 
-    int updateActionType(LeaveApprovalTransactionId transactionId, ApprovalActionTypes action);
+    int updateActionType(ApprovalTransactionId transactionId, ApprovalActionTypes action);
 
 
     //************************* INSERT Operations **************************************************
 
-    int insertNewTransaction(LeaveApprovalTransactionEntity leaveInfo);
+    int insertNewTransaction(ApprovalTransactionEntity leaveInfo);
 
     int insertNewEmployee(EmployeeEntity empInfo);
 }

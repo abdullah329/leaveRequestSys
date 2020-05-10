@@ -33,7 +33,7 @@ public class LeaveRequestRepository implements LeaveRequestInterface {
                         "SELECT * " +
                         "FROM leaveRequest r, LeaveDeductionDetails d " +
                         "WHERE r.leaveId = d.leaveId_fk",
-                new LeaveRequestTrackerMapper());
+                new LeaveRequestMapper());
     }
 
     @Override
@@ -42,7 +42,7 @@ public class LeaveRequestRepository implements LeaveRequestInterface {
                         "SELECT *" +
                         "FROM leaveRequest r, LeaveDeductionDetails d " +
                         "WHERE r.leaveId = d.leaveId_fk and EmployeeNID = ? ",
-                new LeaveRequestTrackerMapper(),empNid.getId());
+                new LeaveRequestMapper(),empNid.getId());
     }
 
     @Override
@@ -51,7 +51,7 @@ public class LeaveRequestRepository implements LeaveRequestInterface {
                         "SELECT *" +
                         "FROM leaveRequest r, LeaveDeductionDetails d " +
                         "WHERE r.leaveId = d.leaveId_fk and EmployeeNID = ? and requestStatus<>'D' ",
-                new LeaveRequestTrackerMapper(),empNid.getId());
+                new LeaveRequestMapper(),empNid.getId());
     }
 
     @Override
@@ -60,7 +60,7 @@ public class LeaveRequestRepository implements LeaveRequestInterface {
                         "SELECT *" +
                         "FROM leaveRequest r, LeaveDeductionDetails d " +
                         "WHERE r.leaveId = d.leaveId_fk and EmployeeNID = ? and requestStatus='P' ",
-                new LeaveRequestTrackerMapper(),empNid.getId());
+                new LeaveRequestMapper(),empNid.getId());
     }
 
     @Override
@@ -69,7 +69,7 @@ public class LeaveRequestRepository implements LeaveRequestInterface {
                         "SELECT * " +
                         "FROM leaveRequest r, LeaveDeductionDetails d " +
                         "WHERE leaveRequestId = ? and r.leaveId = d.leaveId_fk ",
-                new LeaveRequestTrackerMapper(),leaveRequestId.getId());
+                new LeaveRequestMapper(),leaveRequestId.getId());
     }
 
     @Override

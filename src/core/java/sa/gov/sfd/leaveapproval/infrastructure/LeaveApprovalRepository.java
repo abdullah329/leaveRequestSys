@@ -10,7 +10,7 @@ package sa.gov.sfd.leaveapproval.infrastructure;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import sa.gov.sfd.leaveapproval.core.LeaveApprovalProcessesEntity;
+import sa.gov.sfd.leaveapproval.core.ApprovalProcessesEntity;
 import sa.gov.sfd.leaveapproval.core.*;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
 import sa.gov.sfd.leaveapproval.core.EmployeeEntity;
@@ -24,27 +24,27 @@ import java.util.List;
  * @author abdullahalgarni on 15/04/2020 AD
  * @project leaveSystem
  **/
-public class LeaveApprovalRepository implements LeaveApprovalInterface{
+public class LeaveApprovalRepository implements ApprovalInterface {
 
     private JdbcTemplate jdbcTemplate;
     private DataSource dataSource;
 
     @Override
-    public List<LeaveApprovalTransactionEntity> findByLeaveRequestId(LeaveId leaveRequestId) {
-        return (List<LeaveApprovalTransactionEntity>) jdbcTemplate.queryForObject("" +
+    public List<ApprovalTransactionEntity> findByLeaveRequestId(LeaveId leaveRequestId) {
+        return (List<ApprovalTransactionEntity>) jdbcTemplate.queryForObject("" +
                         "SELECT * " +
                         "FROM LeaveApprovalTransaction " +
                         "WHERE leaveRequestId = ?",
-                new BeanPropertyRowMapper<>(LeaveApprovalTransactionEntity.class), leaveRequestId.getId());
+                new BeanPropertyRowMapper<>(ApprovalTransactionEntity.class), leaveRequestId.getId());
     }
 
     @Override
-    public List<LeaveApprovalProcessesEntity> loadLeaveProcessScenarioByEmployeeNID(EmployeeNID approverNID) {
-        return (List<LeaveApprovalProcessesEntity>) jdbcTemplate.queryForObject("" +
+    public List<ApprovalProcessesEntity> loadLeaveProcessScenarioByEmployeeNID(EmployeeNID approverNID) {
+        return (List<ApprovalProcessesEntity>) jdbcTemplate.queryForObject("" +
                         "SELECT l.processId,l.approvalScenarioId,l.processStepNumber,l.approverTeamId " +
                         "FROM LeaveApprovalProcesses l, employee e " +
                         "WHERE l.approvalScenarioId = e.approvalScenarioId ",
-                new BeanPropertyRowMapper<>(LeaveApprovalTransactionEntity.class));
+                new BeanPropertyRowMapper<>(ApprovalTransactionEntity.class));
     }
 
     @Override
@@ -62,13 +62,13 @@ public class LeaveApprovalRepository implements LeaveApprovalInterface{
     }
 
     @Override
-    public List<LeaveApprovalTransactionEntity> findPendingRequestByApproveNID(EmployeeNID approverNID) {
-        return (List<LeaveApprovalTransactionEntity>) jdbcTemplate.queryForObject("" +
+    public List<ApprovalTransactionEntity> findPendingRequestByApproveNID(EmployeeNID approverNID) {
+        return (List<ApprovalTransactionEntity>) jdbcTemplate.queryForObject("" +
                         "SELECT * " +
                         "FROM LeaveApprovalTransaction lt inner join leaveApprovalProcess ap " +
                         "on lt.processId_fk= ap.processId inner join ApproverTeam rt on ap.approverTeamId = rt.approverTeamId " +
                         "WHERE employeeNID = ?",
-                new BeanPropertyRowMapper<>(LeaveApprovalTransactionEntity.class), approverNID.getId());
+                new BeanPropertyRowMapper<>(ApprovalTransactionEntity.class), approverNID.getId());
     }
 
     @Override
@@ -94,7 +94,7 @@ public class LeaveApprovalRepository implements LeaveApprovalInterface{
     //************************* UPDATE Operations **************************************************
 
     @Override
-    public int updateActionType(LeaveApprovalTransactionId transactionId, ApprovalActionTypes action){
+    public int updateActionType(ApprovalTransactionId transactionId, ApprovalActionTypes action){
         return jdbcTemplate.update("UPDATE LeaveApprovalTransaction " +
                         "SET leaveRequestAction = ? and actionTimeStamp = ?" +
                         "WHERE trasactionId =?" ,
@@ -107,7 +107,7 @@ public class LeaveApprovalRepository implements LeaveApprovalInterface{
     //************************* INSERT Operations **************************************************
 
     @Override
-    public int insertNewTransaction(LeaveApprovalTransactionEntity approvalTransInfo){
+    public int insertNewTransaction(ApprovalTransactionEntity approvalTransInfo){
 
         return jdbcTemplate.update("INSERT INTO LeaveApprovalTransaction " +
                         "(trasactionId, " +

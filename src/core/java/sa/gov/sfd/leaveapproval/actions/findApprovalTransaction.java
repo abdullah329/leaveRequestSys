@@ -2,8 +2,8 @@ package sa.gov.sfd.leaveapproval.actions;
 
 import com.google.inject.Inject;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
-import sa.gov.sfd.leaveapproval.core.LeaveApprovalService;
-import sa.gov.sfd.leaveapproval.core.LeaveApprovalTransactionEntity;
+import sa.gov.sfd.leaveapproval.core.ApprovalService;
+import sa.gov.sfd.leaveapproval.core.ApprovalTransactionEntity;
 
 import java.util.List;
 
@@ -13,14 +13,14 @@ import java.util.List;
  **/
 public class findApprovalTransaction {
 
-    private LeaveApprovalService leaveApprovalFlowService;
+    private ApprovalService leaveApprovalFlowService;
 
     @Inject
-    public findApprovalTransaction(LeaveApprovalService leaveApprovalFlowService) {
+    public findApprovalTransaction(ApprovalService leaveApprovalFlowService) {
         this.leaveApprovalFlowService = leaveApprovalFlowService;
     }
 
-    public List<LeaveApprovalTransactionEntity> loadAppPendingByApproverNID(EmployeeNID approverNID){
+    public List<ApprovalTransactionEntity> loadAppPendingByApproverNID(EmployeeNID approverNID){
         return leaveApprovalFlowService.findTransactionsByApproverNID(approverNID);
     }
 

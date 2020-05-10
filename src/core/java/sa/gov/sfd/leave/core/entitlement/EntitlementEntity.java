@@ -14,16 +14,22 @@ import java.util.Objects;
  **/
 public class EntitlementEntity {
 
+    private final EntitlementId entitlementId;
     private final EmployeeNID employeeNID;
     private final int entitlementYear;
     private final int entitlementAmount;
     private final EntitlementExpireDate entitlementExpireDate;
 
-    public EntitlementEntity(EmployeeNID employeeNID, int entitlementYear, int entitlementAmount, EntitlementExpireDate entitlementExpireDate) {
+    public EntitlementEntity(EntitlementId entitlementId, EmployeeNID employeeNID, int entitlementYear, int entitlementAmount, EntitlementExpireDate entitlementExpireDate) {
+        this.entitlementId = entitlementId;
         this.employeeNID=employeeNID;
         this.entitlementYear = entitlementYear;
         this.entitlementAmount = entitlementAmount;
         this.entitlementExpireDate = entitlementExpireDate;
+    }
+
+    public EntitlementId getEntitlementId() {
+        return entitlementId;
     }
 
     public EmployeeNID getEmployeeNID() {
@@ -49,19 +55,21 @@ public class EntitlementEntity {
         EntitlementEntity that = (EntitlementEntity) o;
         return entitlementYear == that.entitlementYear &&
                 entitlementAmount == that.entitlementAmount &&
+                entitlementId.equals(that.entitlementId) &&
                 employeeNID.equals(that.employeeNID) &&
                 entitlementExpireDate.equals(that.entitlementExpireDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeNID, entitlementYear, entitlementAmount, entitlementExpireDate);
+        return Objects.hash(entitlementId, employeeNID, entitlementYear, entitlementAmount, entitlementExpireDate);
     }
 
     @Override
     public String toString() {
-        return "AnnualLeaveEntitlement{" +
-                "employeeNID=" + employeeNID +
+        return "EntitlementEntity{" +
+                "entitlementId=" + entitlementId +
+                ", employeeNID=" + employeeNID +
                 ", entitlementYear=" + entitlementYear +
                 ", entitlementAmount=" + entitlementAmount +
                 ", entitlementExpireDate=" + entitlementExpireDate +

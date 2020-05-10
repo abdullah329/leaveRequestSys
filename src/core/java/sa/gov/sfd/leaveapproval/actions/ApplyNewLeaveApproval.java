@@ -10,10 +10,10 @@ import sa.gov.sfd.leaveapproval.core.*;
  **/
 public class ApplyNewLeaveApproval {
 
-    private LeaveApprovalService leaveApprovalService;
+    private ApprovalService leaveApprovalService;
 
     @Inject
-    public ApplyNewLeaveApproval(LeaveApprovalService leaveApprovalService) {
+    public ApplyNewLeaveApproval(ApprovalService leaveApprovalService) {
         this.leaveApprovalService = leaveApprovalService;
     }
 
