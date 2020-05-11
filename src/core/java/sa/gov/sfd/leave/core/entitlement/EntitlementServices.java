@@ -4,9 +4,10 @@
 
 package sa.gov.sfd.leave.core.entitlement;
 
-import com.google.inject.Inject;
 import sa.gov.sfd.leave.infrastructure.DateOperations;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -15,13 +16,14 @@ import java.util.List;
  * @author abdullahalgarni on 21/04/2020 AD
  * @project leaveSystem
  **/
+@Service
 public class EntitlementServices {
 
-    private EntitlementInterface entitlementRepository;
+    private EntitlementRepository entitlementRepository;
     private DateOperations dateOperations;
 
-    @Inject
-    public EntitlementServices(EntitlementInterface entitlementRepository, DateOperations dateOperations) {
+    @Autowired
+    public EntitlementServices(EntitlementRepository entitlementRepository, DateOperations dateOperations) {
         this.entitlementRepository = entitlementRepository;
         this.dateOperations = dateOperations;
     }

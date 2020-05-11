@@ -6,9 +6,9 @@ package sa.gov.sfd.leaveapproval.core;
  **/
 public class ApproverTeamEntity {
 
-    private final ApproverTeamId approverTeamId;
-    private final EmployeeNID employeeNID;
-    private final ApproverRoles approverRoles;
+    private  ApproverTeamId approverTeamId;
+    private  EmployeeNID employeeNID;
+    private  ApproverRoles approverRoles;
 
     public ApproverTeamEntity(ApproverTeamId approverTeamId, EmployeeNID employeeNIDs, ApproverRoles approverRoles) {
         this.approverTeamId = approverTeamId;

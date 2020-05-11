@@ -3,18 +3,21 @@ package sa.gov.sfd.leave.actions;
 import com.google.inject.Inject;
 import sa.gov.sfd.leave.core.leaverequest.LeaveRequestService;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 
 /**
  * @author abdullahalgarni on 06/05/2020 AD
  * @project leaveSys
  **/
+
+@Service
 public class ApplyForLeaveRequest {
 
     private LeaveRequestService leaveRequestService;
 
-    @Inject
+    @Autowired
     public ApplyForLeaveRequest(LeaveRequestService leaveRequestService) {
         this.leaveRequestService = leaveRequestService;
     }

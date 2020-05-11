@@ -13,14 +13,14 @@ import java.util.List;
  * @project leaveSystem
  **/
 public class ApprovalTransactionEntity {
-    private final ApprovalTransactionId transactionId;
-    private final ApprovalTransDate leaveApprovalTransDate;
-    private final LeaveId leaveRequestId;
-    private final ProcessFlowId processId;
-    private final List<ApproverTeamEntity> approverTeam;
-    private final ApprovalActionTypes approvalActionTypes;
-    private final EmployeeNID employeeNID;
-    private final String approverNote;
+    private  ApprovalTransactionId transactionId;
+    private  ApprovalTransDate leaveApprovalTransDate;
+    private  LeaveId leaveRequestId;
+    private  ProcessFlowId processId;
+    private  List<ApproverTeamEntity> approverTeam;
+    private  ApprovalActionTypes approvalActionTypes;
+    private  EmployeeNID employeeNID;
+    private  String approverNote;
 
     public ApprovalTransactionEntity(ApprovalTransactionId transactionId, ApprovalTransDate leaveApprovalTransDate,
                                      LeaveId leaveRequestId,

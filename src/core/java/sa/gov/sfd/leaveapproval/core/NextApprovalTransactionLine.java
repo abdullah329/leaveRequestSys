@@ -15,7 +15,7 @@ import java.util.Objects;
 public class NextApprovalTransactionLine {
     private final LeaveId leaveRequestId;
     private final ProcessFlowId nextProcessId;
-    private int processStepNumber;
+    private final int processStepNumber;
     private final List<ApproverTeamEntity> approverTeam;
     private final EmployeeNID employeeNID;
 

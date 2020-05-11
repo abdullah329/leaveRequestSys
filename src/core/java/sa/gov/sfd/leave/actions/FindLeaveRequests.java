@@ -4,7 +4,8 @@ import com.google.inject.Inject;
 import sa.gov.sfd.leave.core.leaverequest.LeaveRequestService;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
 import sa.gov.sfd.leave.core.leaverequest.LeaveRequestEntity;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.Comparator;
 import java.util.List;
 
@@ -12,11 +13,12 @@ import java.util.List;
  * @author abdullahalgarni on 06/05/2020 AD
  * @project leaveSys
  **/
+@Service
 public class FindLeaveRequests {
 
     private LeaveRequestService leaveRequestService;
 
-    @Inject
+    @Autowired
     public FindLeaveRequests(LeaveRequestService leaveRequestService) {
         this.leaveRequestService = leaveRequestService;
     }

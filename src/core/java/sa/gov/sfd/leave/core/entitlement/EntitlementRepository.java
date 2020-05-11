@@ -12,7 +12,7 @@ import java.util.List;
  * @author abdullahalgarni on 24/04/2020 AD
  * @project leaveSystem
  **/
-public interface EntitlementInterface {
+public interface EntitlementRepository {
 
 
     //************************* SELECT Operations **************************************************

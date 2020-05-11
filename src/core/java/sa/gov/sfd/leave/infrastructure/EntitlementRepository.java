@@ -6,7 +6,6 @@ package sa.gov.sfd.leave.infrastructure;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import sa.gov.sfd.leave.core.entitlement.EntitlementInterface;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
 import sa.gov.sfd.leave.core.entitlement.EntitlementEntity;
 
@@ -16,7 +15,7 @@ import java.util.List;
  * @author abdullahalgarni on 24/04/2020 AD
  * @project leaveSystem
  **/
-public class EntitlementRepository implements EntitlementInterface {
+public class EntitlementRepository implements sa.gov.sfd.leave.core.entitlement.EntitlementRepository {
 
     private JdbcTemplate jdbcTemplate;
 

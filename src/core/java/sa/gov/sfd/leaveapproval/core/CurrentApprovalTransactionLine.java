@@ -18,8 +18,8 @@ public class CurrentApprovalTransactionLine {
     private final LeaveId leaveRequestId;
 
     private final ProcessFlowId processId;
-    private processFlowScenarioId approvalScenarioId; // all employee in one department, section ,  or group will have one DeptOrGroupId which determine their approval flow steps
-    private int processStepNumber;
+    private final processFlowScenarioId approvalScenarioId; // all employee in one department, section ,  or group will have one DeptOrGroupId which determine their approval flow steps
+    private final int processStepNumber;
 
     private final ApproverTeamId approverTeamId;
     private final EmployeeNID employeeNID;

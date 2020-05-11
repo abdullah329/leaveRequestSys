@@ -20,7 +20,7 @@ import java.util.Map;
  * @author abdullahalgarni on 14/04/2020 AD
  * @project leaveSystem
  **/
-public class LeaveRequestRepository implements LeaveRequestInterface {
+public class LeaveRequestRepository implements sa.gov.sfd.leave.core.leaverequest.LeaveRequestRepository {
 
 
     private JdbcTemplate jdbcTemplate;

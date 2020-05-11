@@ -24,7 +24,7 @@ import java.util.List;
  * @author abdullahalgarni on 15/04/2020 AD
  * @project leaveSystem
  **/
-public class LeaveApprovalRepository implements ApprovalInterface {
+public class ApprovalRepository implements sa.gov.sfd.leaveapproval.core.ApprovalRepository {
 
     private JdbcTemplate jdbcTemplate;
     private DataSource dataSource;

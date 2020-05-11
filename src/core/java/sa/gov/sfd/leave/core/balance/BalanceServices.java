@@ -5,6 +5,8 @@ import sa.gov.sfd.leave.core.entitlement.EntitlementServices;
 import sa.gov.sfd.leave.core.leaverequest.LeaveRequestDeductionDetails;
 import sa.gov.sfd.leave.core.leaverequest.LeaveRequestService;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -14,16 +16,23 @@ import java.util.List;
  * @author abdullahalgarni on 07/05/2020 AD
  * @project leaveSys
  **/
+@Service
 public class BalanceServices {
 
+    private EntitlementServices entitlementServices;
+    private LeaveRequestService leaveRequestService;
 
+    @Autowired
+    public BalanceServices(EntitlementServices entitlementServices, LeaveRequestService leaveRequestService) {
+        this.entitlementServices = entitlementServices;
+        this.leaveRequestService = leaveRequestService;
+    }
 
     public List<LeaveBalances> calculateLeaveEntitlementRemaining(EmployeeNID employeeNID) {
 
-        EntitlementServices entitlementServices = new EntitlementServices();
+
         List<EntitlementEntity> entitlementPerYear = entitlementServices.loadLeaveEntitlement(employeeNID);
 
-        LeaveRequestService leaveRequestService = new LeaveRequestService();
         List<LeaveRequestDeductionDetails> daysTakenPerYear = leaveRequestService.loadDaysTakenPerYear(employeeNID);
 
         List<LeaveBalances> leaveBalances = new ArrayList<>();

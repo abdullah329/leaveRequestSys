@@ -11,7 +11,7 @@ import java.util.List;
  * @author abdullahalgarni on 08/05/2020 AD
  * @project leaveSystem
  **/
-public interface ApprovalInterface {
+public interface ApprovalRepository {
 
 
 

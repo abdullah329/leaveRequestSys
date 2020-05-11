@@ -14,11 +14,11 @@ import java.util.Objects;
  **/
 public class EntitlementEntity {
 
-    private final EntitlementId entitlementId;
-    private final EmployeeNID employeeNID;
-    private final int entitlementYear;
-    private final int entitlementAmount;
-    private final EntitlementExpireDate entitlementExpireDate;
+    private  EntitlementId entitlementId;
+    private  EmployeeNID employeeNID;
+    private  int entitlementYear;
+    private  int entitlementAmount;
+    private  EntitlementExpireDate entitlementExpireDate;
 
     public EntitlementEntity(EntitlementId entitlementId, EmployeeNID employeeNID, int entitlementYear, int entitlementAmount, EntitlementExpireDate entitlementExpireDate) {
         this.entitlementId = entitlementId;
@@ -28,6 +28,12 @@ public class EntitlementEntity {
         this.entitlementExpireDate = entitlementExpireDate;
     }
 
+    public EntitlementEntity(EmployeeNID employeeNID, int entitlementYear, int entitlementAmount, EntitlementExpireDate entitlementExpireDate) {
+        this.employeeNID=employeeNID;
+        this.entitlementYear = entitlementYear;
+        this.entitlementAmount = entitlementAmount;
+        this.entitlementExpireDate = entitlementExpireDate;
+    }
     public EntitlementId getEntitlementId() {
         return entitlementId;
     }
@@ -48,31 +54,4 @@ public class EntitlementEntity {
         return entitlementExpireDate;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        EntitlementEntity that = (EntitlementEntity) o;
-        return entitlementYear == that.entitlementYear &&
-                entitlementAmount == that.entitlementAmount &&
-                entitlementId.equals(that.entitlementId) &&
-                employeeNID.equals(that.employeeNID) &&
-                entitlementExpireDate.equals(that.entitlementExpireDate);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(entitlementId, employeeNID, entitlementYear, entitlementAmount, entitlementExpireDate);
-    }
-
-    @Override
-    public String toString() {
-        return "EntitlementEntity{" +
-                "entitlementId=" + entitlementId +
-                ", employeeNID=" + employeeNID +
-                ", entitlementYear=" + entitlementYear +
-                ", entitlementAmount=" + entitlementAmount +
-                ", entitlementExpireDate=" + entitlementExpireDate +
-                '}';
-    }
 }

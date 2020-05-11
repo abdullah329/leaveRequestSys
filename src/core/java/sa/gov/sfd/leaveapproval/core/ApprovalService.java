@@ -1,23 +1,24 @@
 package sa.gov.sfd.leaveapproval.core;
 
-import com.google.inject.Inject;
 import sa.gov.sfd.leaveapproval.infrastructure.DateOperations;
 import sa.gov.sfd.leave.core.leaverequest.LeaveId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 /**
  * @author abdullahalgarni on 14/04/2020 AD
  * @project leaveSystem
  **/
+@Service
 public class ApprovalService {
 
-    private ApprovalInterface leaveApprovalTransactionRepository;
+    private ApprovalRepository leaveApprovalTransactionRepository;
     private DateOperations dateOperations;
 
-    @Inject
-    public ApprovalService(ApprovalInterface leaveApprovalTransactionRepository, DateOperations dateOperations) {
+    @Autowired
+    public ApprovalService(ApprovalRepository leaveApprovalTransactionRepository, DateOperations dateOperations) {
         this.leaveApprovalTransactionRepository = leaveApprovalTransactionRepository;
         this.dateOperations = dateOperations;
     }

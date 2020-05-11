@@ -1,10 +1,10 @@
 package sa.gov.sfd.leave.core.leaverequest;
 
-import com.google.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import sa.gov.sfd.leave.core.balance.BalanceServices;
 import sa.gov.sfd.leave.core.balance.LeaveBalances;
 import sa.gov.sfd.leave.infrastructure.DateOperations;
-import sa.gov.sfd.leave.infrastructure.LeaveRequestRepository;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,15 +14,18 @@ import java.util.List;
  * @author abdullahalgarni on 14/04/2020 AD
  * @project leaveSystem
  **/
+@Service
 public class LeaveRequestService {
 
-     private LeaveRequestInterface leaveRequestRepository;
-     private DateOperations dateOperations;
+    private LeaveRequestRepository leaveRequestRepository;
+    private BalanceServices balanceServices;
+    private DateOperations dateOperations;
 
-     @Inject
-     public LeaveRequestService(LeaveRequestInterface leaveRequestRepository, DateOperations dateOperations) {
+     @Autowired
+     public LeaveRequestService(LeaveRequestRepository leaveRequestRepository, BalanceServices balanceServices, DateOperations dateOperations) {
         this.leaveRequestRepository = leaveRequestRepository;
-        this.dateOperations = dateOperations;
+         this.balanceServices = balanceServices;
+         this.dateOperations = dateOperations;
 
      }
 
@@ -57,19 +60,18 @@ public class LeaveRequestService {
     public long addNewLeaveRequest(EmployeeNID employeeNID, LocalDate leaveStartDate_AH,
                                      int daysRequested){
 
-        BalanceServices bs = new BalanceServices();
-        LeaveRequestRepository dao = new LeaveRequestRepository();
+        sa.gov.sfd.leave.infrastructure.LeaveRequestRepository dao = new sa.gov.sfd.leave.infrastructure.LeaveRequestRepository();
 
         LeaveStartDate startDate = new LeaveStartDate(leaveStartDate_AH, dateOperations.toGregorian(leaveStartDate_AH));
 
         LeaveRequestInfo newLeaveRequestInfo = new LeaveRequestInfo(employeeNID,startDate,daysRequested);
         Long newleaveId = null;
-        if(newLeaveRequestInfo.getNumberOfDaysLeave() >= bs.totalBalance(newLeaveRequestInfo.getEmployeeNID())){
+        if(newLeaveRequestInfo.getNumberOfDaysLeave() >= this.balanceServices.totalBalance(newLeaveRequestInfo.getEmployeeNID())){
             newleaveId = dao.insertNew(newLeaveRequestInfo,new LeaveRequestStatus("P"));
             if(newleaveId != null && newleaveId>0){
                 int daysRequestedRemaining =daysRequested;
                 int daysToBeTaken = 0;
-                for(LeaveBalances lb : bs.calculateLeaveEntitlementRemaining(employeeNID)){
+                for(LeaveBalances lb : this.balanceServices.calculateLeaveEntitlementRemaining(employeeNID)){
                     if(daysRequestedRemaining ==0){
                         break;
                     }

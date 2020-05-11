@@ -12,7 +12,7 @@ import java.util.List;
  * @author abdullahalgarni on 14/04/2020 AD
  * @project leaveSystem
  **/
-public interface LeaveRequestInterface {
+public interface LeaveRequestRepository {
 
     //************************* SELECT Operations **************************************************
     List<LeaveRequestEntity> findAllLeaveRequest();
