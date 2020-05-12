@@ -14,10 +14,10 @@ import java.util.Objects;
 
 public class LeaveBalances {
 
-    private int entitledYears;
-    private int entitledAmount;
-    private int totalDaysTaken;
-    private int balance;
+    private final int entitledYears;
+    private final int entitledAmount;
+    private final int totalDaysTaken;
+    private final int balance;
 
     public LeaveBalances(int entitledYears, int entitledAmount, int totalDaysTaken, int balance) {
         this.entitledYears = entitledYears;

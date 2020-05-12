@@ -48,7 +48,7 @@ public class LeaveRequestStatus {
     }
 
 
-    private  Status requestStatus = null;
+    private Status requestStatus = null;
 
     public LeaveRequestStatus(String status) {
 
