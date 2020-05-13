@@ -32,7 +32,7 @@ import java.util.Objects;
  **/
 public class LeaveId {
 
-    public final long Id;
+    private final long Id;
 
     public LeaveId(Long id) {
         Id = id;
