@@ -7,7 +7,7 @@ package sa.gov.sfd.leave.infrastructure;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import sa.gov.sfd.leaveapproval.core.EmployeeNID;
-import sa.gov.sfd.leave.core.entitlement.EntitlementEntity;
+import sa.gov.sfd.leave.core.entitlement.Entitlement;
 
 import java.util.List;
 
@@ -22,19 +22,19 @@ public class EntitlementRepository implements sa.gov.sfd.leave.core.entitlement.
 
     //************************* SELECT Operations **************************************************
     @Override
-    public List<EntitlementEntity> findAnnualLeaveEntitlementByEmployeeNID(EmployeeNID employeeNID) {
-        return (List<EntitlementEntity>) jdbcTemplate.queryForObject("" +
+    public List<Entitlement> findAnnualLeaveEntitlementByEmployeeNID(EmployeeNID employeeNID) {
+        return (List<Entitlement>) jdbcTemplate.queryForObject("" +
                         "SELECT employeeNID,entitlementYear,entitlementAmount,entitlementExpireDate " +
                         "FROM AnnualLeaveEntitlement " +
                         "WHERE EmployeeNID = ?",
-                new BeanPropertyRowMapper<>(EntitlementEntity.class),employeeNID.getId());
+                new BeanPropertyRowMapper<>(Entitlement.class),employeeNID.getId());
     }
 
 
     //************************* INSERT Operations **************************************************
 
     @Override
-    public int insertNewAnnualLeaveEntitlement(EntitlementEntity annualLeaveEntitlement) {
+    public int insertNewAnnualLeaveEntitlement(Entitlement annualLeaveEntitlement) {
         return jdbcTemplate.update("" +
                         "INSERT INTO AnnualLeaveEntitlement " +
                         "(entitlementId," +

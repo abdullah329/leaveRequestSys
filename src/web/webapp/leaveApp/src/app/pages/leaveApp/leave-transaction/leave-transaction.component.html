@@ -1,0 +1,130 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="card-title mb-3">تتبع الطلبات</div>
+        <div class="col-md-12">
+            <table width="80%" class="table">
+                <tr>
+                    <th>
+                        رقم الطلب
+                    </th>
+                    <th>
+                        تاريخ بدء الإجازة
+                    </th>
+                    <th>
+                        عدد الأيام المطلوبة
+                    </th>
+
+                    <th>
+                        الحالة
+                    </th>
+                    <th>
+                      التفاصيل
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        ١٢٣١٣٢
+                    </td>
+                    <td>
+                        ١٢-٢-١٤٤١
+                    </td>
+                    <td>
+                        ٧
+                    </td>
+                    <td>
+                        انتظار
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-primary btn-rounded" (click)="open(modalLong)">
+                            تتبع</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ١٢٣١٣٢
+                    </td>
+                    <td>
+                        ١٢-٢-١٤٤١
+                    </td>
+                    <td>
+                        ٧
+                    </td>
+                    <td>
+                        انتظار
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-primary btn-rounded" (click)="open(modalLong)">
+                            تتبع</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ١٢٣١٣٢
+                    </td>
+                    <td>
+                        ١٢-٢-١٤٤١
+                    </td>
+                    <td>
+                        ٧
+                    </td>
+                    <td>
+                        تمت الموافقة
+
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-danger btn-rounded" (click)="open(modalLong)">
+                             القرار</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ١٢٣١٣٢
+                    </td>
+                    <td>
+                        ١٢-٢-١٤٤١
+                    </td>
+                    <td>
+                        ٧
+                    </td>
+                    <td>
+                        انتظار
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-primary btn-rounded" (click)="open(modalLong)">
+                            تتبع</button>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<ng-template #modalLong let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">تتبع الطلب</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="card-group">
+            <div class="card bg-success">
+                <div class="card-body text-center">
+                    تمت الموافقة
+                </div>
+            </div>
+            <div class="card bg-warning">
+                <div class="card-body text-center">
+                    في الانتظار عند ....
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark btn-rounded" (click)="modal.close('ok')">Ok</button>
+    </div>
+</ng-template>

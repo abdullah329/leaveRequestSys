@@ -1,6 +1,6 @@
 package sa.gov.sfd.leave.core.balance;
 
-import sa.gov.sfd.leave.core.entitlement.EntitlementEntity;
+import sa.gov.sfd.leave.core.entitlement.Entitlement;
 import sa.gov.sfd.leave.core.entitlement.EntitlementServices;
 import sa.gov.sfd.leave.core.leaverequest.LeaveRequestDeductionDetails;
 import sa.gov.sfd.leave.core.leaverequest.LeaveRequestService;
@@ -31,13 +31,13 @@ public class BalanceServices {
     public List<LeaveBalances> calculateLeaveEntitlementRemaining(EmployeeNID employeeNID) {
 
 
-        List<EntitlementEntity> entitlementPerYear = entitlementServices.loadLeaveEntitlement(employeeNID);
+        List<Entitlement> entitlementPerYear = entitlementServices.loadLeaveEntitlement(employeeNID);
 
         List<LeaveRequestDeductionDetails> daysTakenPerYear = leaveRequestService.loadDaysTakenPerYear(employeeNID);
 
         List<LeaveBalances> leaveBalances = new ArrayList<>();
 
-        for(EntitlementEntity entitled : entitlementPerYear){
+        for(Entitlement entitled : entitlementPerYear){
             int totalTaken=0;
             for(LeaveRequestDeductionDetails daysTaken : daysTakenPerYear){
                 if(entitled.getEntitlementYear() == daysTaken.getDeductionYears()) {

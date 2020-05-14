@@ -28,14 +28,14 @@ public class EntitlementServices {
         this.dateOperations = dateOperations;
     }
 
-    public List<EntitlementEntity> loadLeaveEntitlement(EmployeeNID employeeNID){
+    public List<Entitlement> loadLeaveEntitlement(EmployeeNID employeeNID){
        return entitlementRepository.findAnnualLeaveEntitlementByEmployeeNID(employeeNID);
 
     }
 
     public int insertNewEntitlement(EmployeeNID employeeNID, int eYear, int eAmmount, LocalDate eExpireDate_AH){
         return entitlementRepository.insertNewAnnualLeaveEntitlement(
-                new EntitlementEntity(employeeNID,eYear,eAmmount,
+                new Entitlement(employeeNID,eYear,eAmmount,
                         new EntitlementExpireDate(eExpireDate_AH,dateOperations.toGregorian(eExpireDate_AH))));
 
     }

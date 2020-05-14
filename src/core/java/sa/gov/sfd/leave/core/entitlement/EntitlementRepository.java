@@ -16,9 +16,9 @@ public interface EntitlementRepository {
 
 
     //************************* SELECT Operations **************************************************
-    List<EntitlementEntity> findAnnualLeaveEntitlementByEmployeeNID(EmployeeNID employeeNID);
+    List<Entitlement> findAnnualLeaveEntitlementByEmployeeNID(EmployeeNID employeeNID);
 
 
     //************************* INSERT Operations **************************************************
-    int insertNewAnnualLeaveEntitlement(EntitlementEntity annualLeaveEntitlement);
+    int insertNewAnnualLeaveEntitlement(Entitlement annualLeaveEntitlement);
 }

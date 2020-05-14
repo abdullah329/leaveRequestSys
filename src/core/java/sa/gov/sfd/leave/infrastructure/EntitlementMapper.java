@@ -7,7 +7,7 @@ package sa.gov.sfd.leave.infrastructure;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
-import sa.gov.sfd.leave.core.entitlement.EntitlementEntity;
+import sa.gov.sfd.leave.core.entitlement.Entitlement;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,13 +20,13 @@ import java.util.List;
  **/
 
 
-public final class EntitlementMapper implements ResultSetExtractor<List<EntitlementEntity>> {
+public final class EntitlementMapper implements ResultSetExtractor<List<Entitlement>> {
 
-    private static List<EntitlementEntity> entitlementEntityList= new ArrayList<>();
+    private static List<Entitlement> entitlementEntityList= new ArrayList<>();
 
 
     @Override
-    public List<EntitlementEntity> extractData(ResultSet rs) throws SQLException, DataAccessException {
+    public List<Entitlement> extractData(ResultSet rs) throws SQLException, DataAccessException {
 
         //todo
 

@@ -1,0 +1,146 @@
+html, body {
+    height: 100%;
+}
+
+div.card {
+    height: 100%;
+    width: 100%;
+
+}
+.sfd-card-margin{
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+.card-title-white{
+    background-color: #fff;
+    padding: 10px 10px 0px 10px;
+    text-align: center;
+}
+
+.card-title-darkgray{
+    background-color: #6c757d;
+    padding: 10px 10px 0px 10px;
+    text-align: center;
+    size: 12px;
+    color: #fff;
+}
+.sfd-bg-white{
+    background-color: #fff;
+    padding: 10px;
+}
+.sfd-bg-pelorous{
+    background-color: #17a2b8;
+    padding: 10px;
+}
+
+.sfd-bg-teal{
+    background-color: #008080;
+    padding: 10px;
+
+}
+.sfd-bg-teal h6{
+
+    color: #fff;
+
+}
+
+
+.sfd-bg-cyan{
+    background-color: #00FFFF;
+    padding: 10px;
+}
+.sfd-bg-cyan h6{
+
+    color: #fff;
+
+}
+.sfd-bg-darkgray{
+    background-color: #6c757d;
+    padding: 10px;
+    color: #fff;
+}
+
+
+.sfd-bg-red{
+    background-color: #dc3545;
+    padding: 10px;
+}
+.sfd-bg-red h6{
+
+    color: #fff;
+
+}
+.sfd-bg-blue{
+    background-color: #007bff;
+    padding: 10px;
+}
+.sfd-bg-blue h6{
+
+    color: #fff;
+
+}
+.sfd-bg-green{
+    background-color: #28a745;
+    padding: 10px;
+}
+
+.sfd-bg-yellow{
+    background-color: #ffc107;
+    padding: 10px;
+}
+
+
+.flex-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.single-chart {
+    width: 100%;
+    justify-content: space-around ;
+}
+
+.circular-chart {
+    display: block;
+    margin: 10px auto;
+    max-width: 80%;
+    max-height: 250px;
+}
+
+.circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+}
+
+.circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+    0% {
+        stroke-dasharray: 0 100;
+    }
+}
+
+.circular-chart.orange .circle {
+    stroke: #ff9f00;
+}
+
+.circular-chart.green .circle {
+    stroke: #4CC790;
+}
+
+.circular-chart.blue .circle {
+    stroke: #3c9ee5;
+}
+
+.percentage {
+    fill: #666;
+    font-family: sans-serif;
+    font-size: 0.5em;
+    text-anchor: middle;
+}
