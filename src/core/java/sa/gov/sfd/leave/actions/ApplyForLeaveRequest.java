@@ -22,9 +22,9 @@ public class ApplyForLeaveRequest {
         this.leaveRequestService = leaveRequestService;
     }
 
-    public boolean apply(EmployeeNID employeeNID,LocalDate leaveStartDate_AH,
+    public boolean apply(Long employeeNID,LocalDate leaveStartDate_AH,
                       int numberOfDaysLeave){
-        long leaveId = leaveRequestService.addNewLeaveRequest(employeeNID,leaveStartDate_AH,numberOfDaysLeave);
+        long leaveId = leaveRequestService.addNewLeaveRequest(new EmployeeNID(employeeNID),leaveStartDate_AH,numberOfDaysLeave);
 
         if(leaveId>0){
             //TODO send a messange to leaveapproval to (start) apply for new leave approval process

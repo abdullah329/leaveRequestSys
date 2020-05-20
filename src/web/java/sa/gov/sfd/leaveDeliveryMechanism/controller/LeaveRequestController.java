@@ -18,8 +18,7 @@ public class LeaveRequestController {
 
     @PostMapping("save-leave-request")
     public boolean addNewLeaveRequest(@RequestBody LeaveRequestViewModel leaveRequestDTO){
-        return newLeave.apply(
-                new EmployeeNID(leaveRequestDTO.getEmployeeNID()), LocalDate.parse(leaveRequestDTO.getLeaveStartDate_AH()),leaveRequestDTO.getLeaveDayRequired());
+        return newLeave.apply(leaveRequestDTO.getEmployeeNID(), LocalDate.parse(leaveRequestDTO.getLeaveStartDate_AH()),leaveRequestDTO.getLeaveDayRequired());
     }
 
      //todo another functions
